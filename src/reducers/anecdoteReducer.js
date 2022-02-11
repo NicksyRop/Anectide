@@ -26,6 +26,9 @@ const reducer = (state = initialState, action) => {
       const newAnectode = { ...anectode, votes: anectode.votes + 1 };
       return state.map((tode) => (tode.id !== action.id ? tode : newAnectode));
 
+    case "NEW_TODE":
+      return state.concat(action.data);
+
     default:
       return state;
   }
@@ -35,6 +38,17 @@ export const voteAnectode = (id) => {
   return {
     type: "VOTE",
     id,
+  };
+};
+
+export const createAnectode = (anectode) => {
+  return {
+    type: "NEW_TODE",
+    data: {
+      id: getId(),
+      content: anectode,
+      votes: 0,
+    },
   };
 };
 
