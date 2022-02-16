@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { createAnectode } from "../reducers/anecdoteReducer";
+import { addNewAnectode } from "../reducers/anecdoteReducer";
 
 const AnecdoteForm = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const AnecdoteForm = () => {
 
     e.target.anectode.value = "";
 
-    dispatch(createAnectode(tode));
+    dispatch(addNewAnectode(tode));
   };
   return (
     <div>
